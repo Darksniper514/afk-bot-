@@ -14,14 +14,24 @@ function createBot() {
       bot.setControlState('jump', true);
       setTimeout(() => {
         bot.setControlState('jump', false);
-      }, 250);
+      }, 300);
+    }, 20000);
+
+    setInterval(() => {
+      const directions = ['forward', 'back', 'left', 'right'];
+      const randomDir = directions[Math.floor(Math.random() * directions.length)];
+      
+      bot.setControlState(randomDir, true);
+      setTimeout(() => {
+        bot.setControlState(randomDir, false);
+      }, 1000);
     }, 15000);
 
     setInterval(() => {
       const yaw = Math.random() * Math.PI * 2;
-      const pitch = (Math.random() * 0.5) - 0.25;
+      const pitch = (Math.random() * 0.4) - 0.2;
       bot.look(yaw, pitch, true);
-    }, 8000);
+    }, 7000);
   });
 
   bot.on('kicked', (reason) => {
