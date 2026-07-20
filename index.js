@@ -4,34 +4,21 @@ function createBot() {
   const bot = mineflayer.createBot({
     host: 'propvps.mcsh.io',
     port: 25565,
-    username: 'BotName'
+    username: 'BotName',
+    hideErrors: false
   });
 
-  bot.on('spawn', () => {
+  bot.once('spawn', () => {
     console.log('Bot successfully joined!');
     
-    setInterval(() => {
-      bot.setControlState('jump', true);
-      setTimeout(() => {
-        bot.setControlState('jump', false);
-      }, 300);
-    }, 20000);
-
-    setInterval(() => {
-      const directions = ['forward', 'back', 'left', 'right'];
-      const randomDir = directions[Math.floor(Math.random() * directions.length)];
-      
-      bot.setControlState(randomDir, true);
-      setTimeout(() => {
-        bot.setControlState(randomDir, false);
-      }, 1000);
-    }, 15000);
-
-    setInterval(() => {
-      const yaw = Math.random() * Math.PI * 2;
-      const pitch = (Math.random() * 0.4) - 0.2;
-      bot.look(yaw, pitch, true);
-    }, 7000);
+    setTimeout(() => {
+      setInterval(() => {
+        bot.setControlState('jump', true);
+        setTimeout(() => {
+          bot.setControlState('jump', false);
+        }, 250);
+      }, 15000);
+    }, 5000);
   });
 
   bot.on('kicked', (reason) => {
