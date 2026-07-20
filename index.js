@@ -11,23 +11,20 @@ bot.on('spawn', () => {
   startAntiAfk();
 });
 
-// دالة منع الطرد بسبب الخمول (Anti-AFK)
 function startAntiAfk() {
   setInterval(() => {
     if (!bot.player) return;
     
-    // يخليه ينط أو يتحرك بشكل خفيف كل دقيقة
     bot.setControlState('jump', true);
     setTimeout(() => {
       bot.setControlState('jump', false);
     }, 500);
 
-    // يغير اتجاه نظره شوية حتى يبين متفاعل
     const yaw = bot.entity.yaw + 1;
     bot.look(yaw, bot.entity.pitch, true);
     
     console.log('Anti-AFK action performed.');
-  }, 60000); // تنفذت كل 60 ثانية (دقيقة)
+  }, 60000);
 }
 
 bot.on('kicked', (reason) => {
