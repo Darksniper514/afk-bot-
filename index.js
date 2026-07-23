@@ -2,8 +2,8 @@ const mineflayer = require('mineflayer');
 
 function createBot() {
   const bot = mineflayer.createBot({
-    host: 'propvps.mcsh.io',
-    port: 25565,
+    host: 'hussam134-oeCI.aternos.me',
+    port: 62530,
     username: 'mustafa_Go',
     physicsEnabled: false
   });
