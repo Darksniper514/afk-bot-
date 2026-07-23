@@ -26,4 +26,4 @@ function createBot() {
   });
 }
 
-createBot(...);
+createBot();
