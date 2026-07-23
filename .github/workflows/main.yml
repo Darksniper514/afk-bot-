@@ -3,7 +3,7 @@ name: Run Minecraft Bot
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 * * * *'    # كل ساعة
+    - cron: '0 * * * *'
 
 concurrency:
   group: mc-afk-bot
@@ -22,8 +22,10 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '22'
+          cache: 'npm'
 
       - name: Install dependencies
-        run: npm install mineflayer
+        run: npm ci
 
-      # خلي باقي الملف مثل ما هو بدون أي تغيير
+      - name: Start Minecraft Bot
+        run: npm start
