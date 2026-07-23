@@ -3,7 +3,7 @@ name: Run Minecraft Bot
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 */5 * * *'   # نسخة جديدة كل 5 ساعات
+    - cron: '0 * * * *'    # كل ساعة
 
 concurrency:
   group: mc-afk-bot
@@ -12,19 +12,18 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 350
+    timeout-minutes: 60
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: '22'
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
 
-    - name: Install dependencies
-      run: npm install mineflayer
+      - name: Install dependencies
+        run: npm install mineflayer
 
-    - name: Start Bot
-      run: node index.js
+      # خلي باقي الملف مثل ما هو بدون أي تغيير
