@@ -4,7 +4,7 @@ function createBot() {
   const bot = mineflayer.createBot({
     host: 'propvps.mcsh.io',
     port: 25565,
-    username: 'AFK_Bot_THIS_IS_THE_LONGEST_BOT_NAME_U_HAVE_SEEN_EVER_AND_UNBEATBLE' // Using a shorter, more conventional username
+    username: 'AFK_Bot_THIS_IS_THE_LONGEST_' // Using a shorter, more conventional username
   });
 
   bot.once('spawn', () => {
