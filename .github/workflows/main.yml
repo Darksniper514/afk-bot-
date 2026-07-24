@@ -6,7 +6,7 @@ on:
     - cron: '0/50 */5 * * *'
 
 concurrency:
-  group: mc-afk-bot
+  group: mc-afk-bot-aternos
   cancel-in-progress: true
 
 jobs:
