@@ -2,7 +2,7 @@ const mineflayer = require('mineflayer');
 
 function createBot() {
   const bot = mineflayer.createBot({
-    host: 'propvps.mcsh.io',
+    host: 'survivalsm.mcsh.io',
     port: 25565,
     username: 'AFK_Bot', // Using a shorter, more conventional username
     physicsEnabled: true
